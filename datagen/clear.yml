@@ -1,0 +1,11 @@
+payloadFrequencySeconds: 30
+payloadCount: 300
+metrics:
+  - name: infra:system.cpu.used.utilization
+    unit: '%'
+    otelType: summary
+    valueFunction: 'randomSummary(25, 55, "", 5)'
+    quantiles: [0, 0.5, 1]
+    reportingEntities: [ec2]
+    isDouble: true 
+
