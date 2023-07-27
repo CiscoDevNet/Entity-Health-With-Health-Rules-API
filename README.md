@@ -156,7 +156,7 @@ Open a Terminal and create a datagen directory: <your_local_datagen_dir>.
 
 In this directory, you will git clone the following data generator git repo, prepare the data files and run the data generator from you local computer:
 
-git clone https://github.com/CiscoDevNet/appdhr.git
+git clone https://github.com/CiscoDevNet/appdhrdata.git
 
 You will see the following files in the datagen directory: <your_local_datagen_dir>:
 
