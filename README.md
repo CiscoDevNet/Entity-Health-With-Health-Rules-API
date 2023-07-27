@@ -182,31 +182,31 @@ With the above configuration, metrics in the range of 75-95% for CPU utilization
 
 Let's examine the two files:
 
->>cat trigger.yml 
+cat trigger.yml 
 
-payloadFrequencySeconds: 30
-payloadCount: 300
-metrics:
-  - name: infra:system.cpu.used.utilization
-    unit: '%'
-    otelType: summary
-    valueFunction: 'randomSummary(75, 95, "", 5)'
-    quantiles: [0, 0.5, 1]
-    reportingEntities: [ec2]
-    isDouble: true 
+        payloadFrequencySeconds: 30
+        payloadCount: 300
+        metrics:
+        - name: infra:system.cpu.used.utilization
+        unit: '%'
+        otelType: summary
+        valueFunction: 'randomSummary(75, 95, "", 5)'
+        quantiles: [0, 0.5, 1]
+        reportingEntities: [ec2]
+        isDouble: true 
 
->>cat clear.yml 
+cat clear.yml 
 
-payloadFrequencySeconds: 30
-payloadCount: 300
-metrics:
-  - name: infra:system.cpu.used.utilization
-    unit: '%'
-    otelType: summary
-    valueFunction: 'randomSummary(25, 55, "", 5)'
-    quantiles: [0, 0.5, 1]
-    reportingEntities: [ec2]
-    isDouble: true 
+        payloadFrequencySeconds: 30
+        payloadCount: 300
+        metrics:
+        - name: infra:system.cpu.used.utilization
+        unit: '%'
+        otelType: summary
+        valueFunction: 'randomSummary(25, 55, "", 5)'
+        quantiles: [0, 0.5, 1]
+        reportingEntities: [ec2]
+        isDouble: true 
 
 ## Resource configuration
 
@@ -216,11 +216,11 @@ We will generate some unique EC2 instance ID's using the AWS account number conf
 
 Execute the following code blocks to generate resource.yml which you will then copy to <your_local_datagen_dir>/resource.yml.
 
-! cat resource.yml
-! echo $ID
-! echo "ID is" $ID
-! sed "s/%accnum%/$ID/g" resource.yml > /tmp/resource.yml
-! cat /tmp/resource.yml
+        cat resource.yml
+        echo $ID
+        echo "ID is" $ID
+        sed "s/%accnum%/$ID/g" resource.yml > /tmp/resource.yml
+        cat /tmp/resource.yml
 
 ## Update local resource.yml
 
@@ -230,14 +230,14 @@ Cut and paste contents of /tmp/resource.yml above to your local <your_local_data
 
 To run the data generator, we need to configure the agent client ID and secret. Execute the following code blocks to generate platformtarget.yml which you will then copy to /platformtarget.yml.
 
-cat platformtarget.yml
-echo $CL_ID
-echo "CL_ID is" $CL_ID
-echo $CL_SEC
-echo "CL_SEC is" $CL_SEC
-sed "s/%clientId%/$CL_ID/g" platformtarget.yml > /tmp/platformtarget1.yml
-sed "s/%clientsec%/$CL_SEC/g" /tmp/platformtarget1.yml > /tmp/platformtarget.yml
-cat /tmp/platformtarget.yml
+        cat platformtarget.yml
+        echo $CL_ID
+        echo "CL_ID is" $CL_ID
+        echo $CL_SEC
+        echo "CL_SEC is" $CL_SEC
+        sed "s/%clientId%/$CL_ID/g" platformtarget.yml > /tmp/platformtarget1.yml
+        sed "s/%clientsec%/$CL_SEC/g" /tmp/platformtarget1.yml > /tmp/platformtarget.yml
+        cat /tmp/platformtarget.yml
 
 ## Update local platformtarget.yml
 
@@ -249,9 +249,9 @@ To generate high CPU utilization data that will trigger the threshold exceeded e
 
 Let it run contunuously to give it time to generate some valid data to populate the UI as well as send notifications to Slack.You can view data in UI and Slack before you stop this data generation.
 
-cd <your_local_datagen_dir>
+        cd <your_local_datagen_dir>
 
-java -jar ati-vodka-local-all.jar -c platformtarget.yml -e resource.yml -m trigger.yml
+        java -jar ati-vodka-local-all.jar -c platformtarget.yml -e resource.yml -m trigger.yml
 
 ## View Threshold Exceeded Metrics in UI
 
@@ -280,9 +280,9 @@ To clear the high CPU utilization event, lets rerun the data generator but this 
 
 Before you run this, make sure you have terminated the previous data generation that you started above.
 
-cd <your_local_datagen_dir>
+        cd <your_local_datagen_dir>
 
-java -jar ati-vodka-local-all.jar -c platformtarget.yml -e resource.yml -m clear.yml
+        java -jar ati-vodka-local-all.jar -c platformtarget.yml -e resource.yml -m clear.yml
 
 ## View Threshold Cleared metrics in UI
 
