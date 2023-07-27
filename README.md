@@ -2,7 +2,7 @@
 ## Contents
         Use Cases
         Pre-requisites, Guidelines
-        Python Health Rules, Actions, Trigger API Client
+        Python API Client - Health Rules, Actions, Trigger 
         Getting the API Token
         Exploring Health Rules API
         Exploring Actions API
@@ -32,7 +32,8 @@ Copy the valiues in the last column under DevNet. You will set the ENV variables
 
 ### Python API Client - Health Rules, Actions, Trigger
 
-Check out a sample python client to exercise the Health Rules/Actions/Triggers API's here: https://github.com/CiscoDevNet/connxapi/blob/main/cloudconnections.py.
+Check out a sample python client to exercise the Health Rules/Actions/Triggers API's here: 
+https://github.com/CiscoDevNet/appdhr/blob/main/hractr.py 
 
 Before running the python client, set up the following environment variables (sample values displayed):
 
@@ -64,15 +65,15 @@ Before running the python client, set up the following environment variables (sa
 
 
 
- Try the API's referenced in the following sections.
+ Try the Python API Client provided to execute the following:
 
 ### Getting the API Token
 
-        * Generate Tenant ID
+        * Generate Tenant ID - get_ten_id()
 
-        * Generate token with POST authentication
+        * Generate token with POST authentication - get_token(ten_id)
 
-        * Generate token with Basic authentication
+        * Generate token with Basic authentication - get_token_basic(ten_id)
 
 
 ### Exploring Health Rules API
@@ -83,21 +84,21 @@ https://developer.cisco.com/docs/appdynamics/health-rules/#!introduction/appdyna
 
 Some of the API's included in the sample python client are as follows and accounts for the health rule resource lifecycle. 
 
-        * Get the list of health rules for a tenant 
+        * Get the list of health rules for a tenant - get_all_health_rules(appd_token, base_url)
 
-        * Create health rules for a tenant
+        * Create health rules for a tenant - create_health_rule(appd_token, base_url, hr_name)
 
-        * Get health rule ID by name
+        * Get health rule ID by name - et_hrid_by_name(appd_token, base_url, conf_name)
 
-        * Disable the health rules
+        * Disable the health rules - disable_hr(appd_token, base_url, hrid)
 
-        * Enable the health rules
+        * Enable the health rules - enable_hr(appd_token, base_url, hrid)
 
-        * Get the health roll up path of an entity
+        * Get the health roll up path of an entity - get_health_roll_up(appd_token, base_url, entity)
 
-        * Modify a health rule
+        * Modify a health rule - update_health_rule(appd_token, base_url, hrid, hr_name)
 
-        * Delete a health rule
+        * Delete a health rule - delete_health_rule(appd_token, hrid)
 
 ### Exploring Actions API
 
@@ -107,15 +108,15 @@ https://developer.cisco.com/docs/appdynamics/actions/#!introduction
 
 Some of the API's included in the sample python client are as follows and accounts for the actions object lifecycle. 
 
-        * Get All Actions
+        * Get All Actions - get_all_actions(appd_token, base_url)
 
-        * Get an Action by Identifier
+        * Get an Action by Identifier - et_actionid_by_name(appd_token, base_url, conf_name)
 
-        * Create an Action
+        * Create an Action - create_action(appd_token, base_url, action_name)
 
-        * Update an Action by Identifier
+        * Update an Action by Identifier - pdate_action(appd_token, base_url, action_id, action_name)
 
-        * Delete an Action by Identifier
+        * Delete an Action by Identifier - delete_action(appd_token, action_id)
 
 ### Exploring Trigger API
 
@@ -125,21 +126,21 @@ https://developer.cisco.com/docs/appdynamics/actions/#!introduction
 
 Some of the API's included in the sample python client are as follows and accounts for the trigger object lifecycle. 
 
-        * Get All Triggers
+        * Get All Triggers - get_all_triggers(appd_token, base_url)
 
-        * Create a Trigger
+        * Create a Trigger - create_trigger(appd_token, base_url, tr_name, hr_id, ac_id)
 
-        * Get a Trigger by Identifier
+        * Get a Trigger by Identifier - get_id_by_name(appd_token, url, conf_name)
 
-        * Update a Trigger by Identifier
+        * Update a Trigger by Identifier - update_trigger(appd_token, base_url, tr_name, tr_id, hr_id, ac_id)
 
-        * Delete a Trigger by Identifier
+        * Delete a Trigger by Identifier - delete_trigger(appd_token, base_url, tr_name, tr_id)
 
 ### Data Generation to trigger and clear events
 
 ## Create Health Rule, Action, Trigger
 
-Use the above API's to do th following before you generate data:
+Use the above API's to do the following before you generate data. This is assuming that you do not have a HR, action,trigger provisioned.
 
 * Create a health rule
 
