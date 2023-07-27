@@ -30,7 +30,7 @@ Copy the valiues in the last column under DevNet. You will set the ENV variables
 
 ![Copy Global Variables](https://github.com/prathjan/images/blob/main/reserve2.png?raw=true)
 
-### Python Health Rules, Actions, Trigger API Client
+### Python API Client - Health Rules, Actions, Trigger
 
 Check out a sample python client to exercise the Health Rules/Actions/Triggers API's here: https://github.com/CiscoDevNet/connxapi/blob/main/cloudconnections.py.
 
