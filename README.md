@@ -138,7 +138,7 @@ Some of the API's included in the sample python client are as follows and accoun
 
 ### Data Generation to trigger and clear events
 
-## Create Health Rule, Action, Trigger
+#### Create Health Rule, Action, Trigger
 
 Use the above API's to do the following before you generate data. This is assuming that you do not have a HR, action,trigger provisioned.
 
@@ -148,7 +148,7 @@ Use the above API's to do the following before you generate data. This is assumi
 
 * Create a Trigger 
 
-## Prepare Data Generator
+#### Prepare Data Generator
 
 You will be running the datagenerator from your local computer. To run the data generator, you will need java installed on your local computer.
 
@@ -170,7 +170,7 @@ You will see the following files in the datagen directory: <your_local_datagen_d
 
         resource.yml
 
-## Data generation to trigger and clear events
+#### Data generation to trigger and clear events
 
 Let's generate some utilization data that exceeds thresholds configured in the health rule in the previous section. We have two files that are provided:
 
@@ -208,7 +208,7 @@ cat clear.yml
         reportingEntities: [ec2]
         isDouble: true 
 
-## Resource configuration
+#### Resource configuration
 
 Let's simulate EC2 resources here. The health rules have been configured for EC2 resources and so thresholds configured will apply to these EC2 instances.
 
@@ -222,11 +222,11 @@ Execute the following code blocks to generate resource.yml which you will then c
         sed "s/%accnum%/$ID/g" resource.yml > /tmp/resource.yml
         cat /tmp/resource.yml
 
-## Update local resource.yml
+#### Update local resource.yml
 
 Cut and paste contents of /tmp/resource.yml above to your local <your_local_datagen_dir>/resource.yml.
 
-## Platform configuration
+#### Platform configuration
 
 To run the data generator, we need to configure the agent client ID and secret. Execute the following code blocks to generate platformtarget.yml which you will then copy to /platformtarget.yml.
 
@@ -239,11 +239,11 @@ To run the data generator, we need to configure the agent client ID and secret. 
         sed "s/%clientsec%/$CL_SEC/g" /tmp/platformtarget1.yml > /tmp/platformtarget.yml
         cat /tmp/platformtarget.yml
 
-## Update local platformtarget.yml
+#### Update local platformtarget.yml
 
 Cut and paste contents of /tmp/platformtarget.yml above to your local <your_local_datagen_dir>/platformtarget.yml.
 
-## Trigger high CPU Utilization event
+#### Trigger high CPU Utilization event
 
 To generate high CPU utilization data that will trigger the threshold exceeded events in CNAO, let's run the following script in <your_local_datagen_dir>. 
 
@@ -253,7 +253,7 @@ Let it run contunuously to give it time to generate some valid data to populate 
 
         java -jar ati-vodka-local-all.jar -c platformtarget.yml -e resource.yml -m trigger.yml
 
-## View Threshold Exceeded Metrics in UI
+#### View Threshold Exceeded Metrics in UI
 
 Click on Observe in your reservation window and you will land in the Observe page of Cloud Native Application Observability.
 
@@ -268,13 +268,13 @@ Click on the applicable host to view details:
 
 ![alt text](https://github.com/prathjan/images/blob/main/metuiex.png?raw=true)
 
-## View Threshold Exceeded Slack Events
+#### View Threshold Exceeded Slack Events
 
 Open the Slack channel that you configured to view events for high CPU Utilization. You should see a warning alert as shown in this example:
 
 ![alt text](https://github.com/prathjan/images/blob/main/metslackex.png?raw=true)
 
-## Clear high CPU Utilization event
+#### Clear high CPU Utilization event
 
 To clear the high CPU utilization event, lets rerun the data generator but this time use the clear.yml which generates CPU utilization data in the clear zone. This should clear the violations raised in the last section.
 
@@ -284,7 +284,7 @@ Before you run this, make sure you have terminated the previous data generation 
 
         java -jar ati-vodka-local-all.jar -c platformtarget.yml -e resource.yml -m clear.yml
 
-## View Threshold Cleared metrics in UI
+#### View Threshold Cleared metrics in UI
 
 Click on the following link and pick the host that applies to your sandbox. It will be of the format `"Lab i-" <your AWS account#>`:
 https://cisco-devnet.observe.appdynamics.com/ui/observe/infra/host?filter=isActive%20%3D%20true&since=now-1h
@@ -295,7 +295,7 @@ Click on the applicable host to view details:
 
 ![alt text](https://github.com/prathjan/images/blob/main/metuicl.png?raw=true)
 
-## View Threshold Cleared Slack Events
+#### View Threshold Cleared Slack Events
 
 Open the Slack channel that you have configured to view events. You should see a Unknown Alert, which indicates that the previously raised alert has been cleared:
 
