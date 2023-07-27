@@ -14,11 +14,8 @@
         * As a Cloud Admin, you have already provisioned cloud connections to AWS leveraging AppD 
         Cloud Connections API to pull metrics data from AWS Services (Load 
         Balancers, Storage, Hosts, Databases)
-
         * As Infra Ops, set up health rules for AWS EC2 instances to alert on thresholds exceeded for CPU Utilization
-
         * As DevOps/AppOps, be notified of thresholds exceeded for the underlying infrastructure
-
 
 ### Pre-requisites, Guidelines
 
@@ -38,41 +35,25 @@ https://github.com/CiscoDevNet/appdhr/blob/main/hractr.py
 Before running the python client, set up the following environment variables (sample values displayed):
 
         %env APPD_CLIENTID_AGT=agt_6DbMBU1d6zmQqBlEQCr7ir
-
         %env APPD_SECRET_AGT=k4hOZYQrZ5B5zHh3r0mn4ZrqwebVrQN18b-yTdDaO9Q
-
         %env APPD_CLIENTID_POST=srv_3yvuCrMr0FCpNuVigRsvqk
-
         %env APPD_SECRET_POST=Hjl5tOMqpTixfBo8LxsFVYk7m_OW5nPMTFTG29LdyvM
-
         %env APPD_CLIENTID_BASIC=srv_eAbU1aJOWGcjsxKUta9b8
-
         %env APPD_SECRET_BASIC=0oiakaHCkzSRmuRdHOJiAoCN2wN8xdFtzCFAOyCLdNs
-
         %env TENANT_NAME=cisco-devnet
-
         %env AWS_ACCESS_KEY=AKIAXQ7ZIQP4W7VTJIXC
-
         %env ID=AKIAXQ7ZIQP4W7VTJIXC
-
         %env AWS_SECRET_KEY=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
-
         %env AWS_CONNECTION_NAME=prathjan-a3ed1d35c8b1427db12033d921d747fc
-
         %env CL_ID=agt_6DbMBU1d6zmQqBlEQCr7ir
-
         %env CL_SEC=k4hOZYQrZ5B5zHh3r0mn4ZrqwebVrQN18b-yTdDaO9Q
-
-
 
  Try the Python API Client provided to execute the following:
 
 ### Getting the API Token
 
         * Generate Tenant ID - get_ten_id()
-
         * Generate token with POST authentication - get_token(ten_id)
-
         * Generate token with Basic authentication - get_token_basic(ten_id)
 
 
@@ -85,19 +66,12 @@ https://developer.cisco.com/docs/appdynamics/health-rules/#!introduction/appdyna
 Some of the API's included in the sample python client are as follows and accounts for the health rule resource lifecycle. 
 
         * Get the list of health rules for a tenant - get_all_health_rules(appd_token, base_url)
-
         * Create health rules for a tenant - create_health_rule(appd_token, base_url, hr_name)
-
         * Get health rule ID by name - get_hrid_by_name(appd_token, base_url, conf_name)
-
         * Disable the health rules - disable_hr(appd_token, base_url, hrid)
-
         * Enable the health rules - enable_hr(appd_token, base_url, hrid)
-
         * Get the health roll up path of an entity - get_health_roll_up(appd_token, base_url, entity)
-
         * Modify a health rule - update_health_rule(appd_token, base_url, hrid, hr_name)
-
         * Delete a health rule - delete_health_rule(appd_token, hrid)
 
 ### Exploring Actions API
@@ -109,13 +83,9 @@ https://developer.cisco.com/docs/appdynamics/actions/#!introduction
 Some of the API's included in the sample python client are as follows and accounts for the actions object lifecycle. 
 
         * Get All Actions - get_all_actions(appd_token, base_url)
-
         * Get an Action by Identifier - get_actionid_by_name(appd_token, base_url, conf_name)
-
         * Create an Action - create_action(appd_token, base_url, action_name)
-
         * Update an Action by Identifier - update_action(appd_token, base_url, action_id, action_name)
-
         * Delete an Action by Identifier - delete_action(appd_token, action_id)
 
 ### Exploring Trigger API
@@ -127,13 +97,9 @@ https://developer.cisco.com/docs/appdynamics/actions/#!introduction
 Some of the API's included in the sample python client are as follows and accounts for the trigger object lifecycle. 
 
         * Get All Triggers - get_all_triggers(appd_token, base_url)
-
         * Create a Trigger - create_trigger(appd_token, base_url, tr_name, hr_id, ac_id)
-
         * Get a Trigger by Identifier - get_id_by_name(appd_token, url, conf_name)
-
         * Update a Trigger by Identifier - update_trigger(appd_token, base_url, tr_name, tr_id, hr_id, ac_id)
-
         * Delete a Trigger by Identifier - delete_trigger(appd_token, base_url, tr_name, tr_id)
 
 ### Data Generation to trigger and clear events
@@ -161,13 +127,9 @@ git clone https://github.com/CiscoDevNet/appdhrdata.git
 You will see the following files in the datagen directory: <your_local_datagen_dir>:
 
         ati-vodka-local-all.jar	
-
         platformtarget.yml	
-
         trigger.yml
-
         clear.yml		
-
         resource.yml
 
 #### Data generation to trigger and clear events
@@ -250,7 +212,6 @@ To generate high CPU utilization data that will trigger the threshold exceeded e
 Let it run contunuously to give it time to generate some valid data to populate the UI as well as send notifications to Slack.You can view data in UI and Slack before you stop this data generation.
 
         cd <your_local_datagen_dir>
-
         java -jar ati-vodka-local-all.jar -c platformtarget.yml -e resource.yml -m trigger.yml
 
 #### View Threshold Exceeded Metrics in UI
