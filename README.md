@@ -19,8 +19,6 @@
 
         * As DevOps/AppOps, be notified of thresholds exceeded for the underlying infrastructure
 
-        
-![alt text](https://github.com/prathjan/images/blob/main/obs1.png?raw=true)
 
 ### Pre-requisites, Guidelines
 
@@ -30,7 +28,7 @@ https://dcloud2-rtp.cisco.com/content/instantdemo/appdynamics-observability-in-a
 
 Copy the valiues in the last column under DevNet. You will set the ENV variables for these parameters that will be used in the API Client:
 
-![alt text](https://github.com/prathjan/images/blob/main/obs2.png?raw=true)
+![Copy Global Variables](https://github.com/prathjan/images/blob/main/reserve2.png?raw=true)
 
 ### Python Health Rules, Actions, Trigger API Client
 
