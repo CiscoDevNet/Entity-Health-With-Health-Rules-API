@@ -88,7 +88,7 @@ Some of the API's included in the sample python client are as follows and accoun
 
         * Create health rules for a tenant - create_health_rule(appd_token, base_url, hr_name)
 
-        * Get health rule ID by name - et_hrid_by_name(appd_token, base_url, conf_name)
+        * Get health rule ID by name - get_hrid_by_name(appd_token, base_url, conf_name)
 
         * Disable the health rules - disable_hr(appd_token, base_url, hrid)
 
@@ -110,11 +110,11 @@ Some of the API's included in the sample python client are as follows and accoun
 
         * Get All Actions - get_all_actions(appd_token, base_url)
 
-        * Get an Action by Identifier - et_actionid_by_name(appd_token, base_url, conf_name)
+        * Get an Action by Identifier - get_actionid_by_name(appd_token, base_url, conf_name)
 
         * Create an Action - create_action(appd_token, base_url, action_name)
 
-        * Update an Action by Identifier - pdate_action(appd_token, base_url, action_id, action_name)
+        * Update an Action by Identifier - update_action(appd_token, base_url, action_id, action_name)
 
         * Delete an Action by Identifier - delete_action(appd_token, action_id)
 
