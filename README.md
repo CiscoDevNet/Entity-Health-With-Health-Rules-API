@@ -1,4 +1,4 @@
-# Use Health Rules to Monitor Entity Health with Cloud Cloud Observability
+# Use Health Rules to Monitor Entity Health with Cisco Cloud Observability Platform
 ## Contents
         Use Cases
         Pre-requisites, Guidelines
@@ -11,7 +11,7 @@
         De-provisioning
 
 ### Use Cases
-        * As a Cloud Admin, you have already provisioned cloud connections to AWS leveraging AppD 
+        * As a Cloud Admin, you have already provisioned cloud connections to AWS leveraging Cisco Cloud Observability Platform 
         Cloud Connections API to pull metrics data from AWS Services (Load 
         Balancers, Storage, Hosts, Databases)
         * As Infra Ops, set up health rules for AWS EC2 instances to alert on thresholds exceeded for CPU Utilization
@@ -19,7 +19,7 @@
 
 ### Pre-requisites, Guidelines
 
-1. Requires Cloud Cloud Observability Tenant, ClientID and Secret. For the purposes of this exercise, we will reserve a sandbox and get the required data from it.
+1. Requires Cisco Cloud Observability Tenant, ClientID and Secret. For the purposes of this exercise, we will reserve a sandbox and get the required data from it.
 
 https://dcloud2-rtp.cisco.com/content/instantdemo/appdynamics-observability-in-aws
 
